@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}文件中心{% endblock %}
+{% block content %}
+<header class="header">
+  <h1>欢迎，{{ username }}</h1>
+  <a href="{{ url_for('logout') }}">退出登录</a>
+</header>
+
+<section class="upload-panel">
+  <h2>上传（支持断点续传）</h2>
+  <input id="fileInput" type="file" />
+  <button id="uploadBtn">开始上传</button>
+  <div id="status"></div>
+</section>
+
+<section>
+  <h2>我的文件</h2>
+  <table>
+    <thead><tr><th>名称</th><th>类型</th><th>大小</th><th>操作</th></tr></thead>
+    <tbody>
+    {% for item in files %}
+      <tr>
+        <td>{{ item.name }}</td>
+        <td>{{ '目录' if item.is_dir else '文件' }}</td>
+        <td>{{ item.size }}</td>
+        <td><a href="{{ url_for('download', name=item.name) }}">下载{% if item.is_dir %}(ZIP){% endif %}</a></td>
+      </tr>
+    {% else %}
+      <tr><td colspan="4">暂无文件</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</section>
+
+<script src="{{ url_for('static', filename='upload.js') }}"></script>
+{% endblock %}
