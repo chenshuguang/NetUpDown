@@ -1,0 +1,13 @@
+body { font-family: Arial, sans-serif; background: #f5f7fb; margin: 0; }
+.container { max-width: 900px; margin: 2rem auto; padding: 1rem; background: #fff; border-radius: 10px; }
+.header { display: flex; justify-content: space-between; align-items: center; }
+.auth-form { display: grid; gap: .8rem; max-width: 340px; }
+label { display: grid; gap: .3rem; }
+input { padding: .5rem; }
+button { padding: .5rem .8rem; background: #2368d2; color: #fff; border: none; border-radius: 6px; }
+.messages { list-style: none; padding: 0; }
+.messages li { padding: .5rem; margin-bottom: .4rem; border-radius: 4px; }
+.messages .error { background: #ffe4e4; }
+.messages .success { background: #e5ffe9; }
+table { width: 100%; border-collapse: collapse; }
+th, td { border-bottom: 1px solid #ddd; padding: .5rem; text-align: left; }
